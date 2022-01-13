@@ -11,6 +11,7 @@ import data from "./data.json";
 import ToDoList from "./components/ToDoList.component";
 import FormScope from "./components/FormScope.component";
 import ClearCompletedTasks from "./components/ClearCompletedTasks.component";
+import styled from "@emotion/styled";
 
 function App() {
   const [toDoList, setToDoList] = useState(data);
@@ -43,15 +44,19 @@ function App() {
     setToDoList(filterTasks);
   };
 
+  const FooterStyled = styled.div``;
+
   return (
     <div className="App">
       <ThemeProvider theme={THEME}>
         <Header />
         <ToDoList toDoList={toDoList} toggleHandler={toggleHandler}></ToDoList>
-        <ClearCompletedTasks
-          filterCompleteHandler={filterCompleteHandler}
-        ></ClearCompletedTasks>
-        <FormScope addNewTaskHandler={addNewTask}></FormScope>
+        <FooterStyled>
+          <ClearCompletedTasks
+            filterCompleteHandler={filterCompleteHandler}
+          ></ClearCompletedTasks>
+          <FormScope addNewTaskHandler={addNewTask}></FormScope>
+        </FooterStyled>
       </ThemeProvider>
     </div>
   );

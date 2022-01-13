@@ -1,5 +1,14 @@
+import styled from "@emotion/styled";
 import React from "react";
 import { useState } from "react";
+import { SelectButton } from "../styled/buttons";
+
+const ButtonRegularStyled = styled(SelectButton)`
+  height: 21px !important;
+`;
+const InputRegularStyled = styled.input`
+  border-radius: 8px !important;
+`;
 
 function FormScope({ addNewTaskHandler }) {
   const [inputTask, setInputTask] = useState("");
@@ -15,13 +24,13 @@ function FormScope({ addNewTaskHandler }) {
   };
   return (
     <form onSubmit={onSubmitHandler}>
-      <input
+      <InputRegularStyled
         value={inputTask}
         placeholder="input new task"
         type="text"
         onChange={onChangeHandle}
-      ></input>
-      <button>Submit</button>
+      ></InputRegularStyled>
+      <ButtonRegularStyled>Submit</ButtonRegularStyled>
     </form>
   );
 }

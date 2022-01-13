@@ -42,11 +42,19 @@ const COLORS = {
   goldenYellow: "#fbc929",
   purpleyGreyTwo: "#988c92",
   sunflower: "#ffca0c",
+  greenColor: "#58e2af",
+
+  googleWhite: "##e8eaed",
+  googleBtn: "#303134",
 };
 
 const THEME = {
   color: {
     // new
+
+    backgroundDefaultBtn: COLORS.googleWhite,
+    defaultBtn: COLORS.googleBtn,
+
     placeholderBackground: COLORS.pastelPink,
     imageBorder: COLORS.pastelPink,
     imageSelectedBorder: COLORS.pinkish,
@@ -76,6 +84,7 @@ const THEME = {
     starReview: COLORS.goldenYellow,
     starReviewEmpty: COLORS.purpleyGrey,
     promotionHighlight: COLORS.sunflower,
+    greenColorBtn: COLORS.greenColor,
   },
   gradients: {
     lightLoadingPlaceholder:
