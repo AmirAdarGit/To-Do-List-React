@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import "./App.css";
 import { ThemeProvider } from "@emotion/react";
 import THEME from "./styled/theme.constants";
@@ -14,10 +15,10 @@ function App() {
       : null
   );
 
-  const handleLogin = (googleData) => {
+  const handleLogin = async (googleData) => {
     console.log(googleData);
     setLoginData(googleData);
-    console.log(loginData);
+    fetchRequest(googleData);
   };
   const handleFailure = (results) => {
     alert(results);
@@ -27,6 +28,19 @@ function App() {
     localStorage.removeItem("loginData");
     setLoginData("");
   };
+
+  const article = { title: "React Hooks POST Request Example" };
+  const fetchRequest = async (data) => {
+    const ans = await axios.post("http://localhost:4000/api/google-login", {
+      userData: {
+        name: data.profileObj.name,
+        email: data.profileObj.email,
+        picture: data.profileObj.imageUrl,
+      },
+    });
+    console.log(ans.data);
+  };
+
   return (
     <div className="App">
       <ThemeProvider theme={THEME}>
@@ -45,6 +59,7 @@ function App() {
               logOutHandler={logOutHandler}
               loginData={loginData}
             />
+            <button onClick={fetchRequest}>FATCH</button>
           </div>
         )}
       </ThemeProvider>
