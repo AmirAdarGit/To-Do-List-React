@@ -4,21 +4,21 @@ const express = require("express");
 var router = require("./routes");
 const mysql = require("mysql");
 
-var db = mysql.createConnection({
-  host: "localhost:5432",
-  user: "root",
-  password: "amirA123",
-  database: "postgres",
-});
+// var db = mysql.createConnection({
+//   host: "localhost:5432",
+//   user: "root",
+//   password: "amirA123",
+//   database: "postgres",
+// });
 
-db.connect((err) => {
-  if (err) {
-    console.log("asdfasdfasfdasfasdfssfaffasas...");
+// db.connect((err) => {
+//   if (err) {
+//     console.log("asdfasdfasfdasfasdfssfaffasas...");
 
-    throw err;
-  }
-  console.log("Database Connected...");
-});
+//     throw err;
+//   }
+//   console.log("Database Connected...");
+// });
 
 var app = express();
 
@@ -29,4 +29,4 @@ app.use("/", router);
 console.log("on app");
 
 module.exports.app = app;
-module.exports.db = db;
+// module.exports.db = db;
