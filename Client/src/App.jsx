@@ -35,7 +35,7 @@ function App() {
       userData: {
         name: data.profileObj.name,
         email: data.profileObj.email,
-        picture: data.profileObj.imageUrl,
+        imageUrl: data.profileObj.imageUrl,
       },
     });
     console.log(ans.data);
